@@ -4,7 +4,7 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class UpdateUserRequest {
+public class UpdateUserRequestDTO {
      private List<String> schemas;
     private List<OperationDTO> Operations;
     

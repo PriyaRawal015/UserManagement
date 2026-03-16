@@ -1,9 +1,16 @@
 package com.example.user.DTO;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.util.List;
 
 @Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class ShowUserDetailResponseDTO {
 
     private List<String> schemas;
@@ -25,4 +32,3 @@ public class ShowUserDetailResponseDTO {
 
     private MetaResponseDTO meta;
 }
-// 
