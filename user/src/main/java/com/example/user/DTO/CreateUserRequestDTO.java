@@ -17,8 +17,9 @@ public class CreateUserRequestDTO {
     private List<String> schemas;
     private String externalId;
     private String userName;
-    private NameDTO name;
+    private Boolean active;   // ✅ ADD THIS
 
+    private NameDTO name;
     private List<EmailDTO> emails;
     private List<PhoneNumberDTO> phoneNumbers;
     private List<AddressDTO> addresses;
@@ -28,9 +29,4 @@ public class CreateUserRequestDTO {
 
     private String preferredLanguage;
     private String timezone;
-    private String id;
-
-    // getters & setters
-
-    
 }

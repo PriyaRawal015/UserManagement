@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.*;
 
 import com.example.user.DTO.CreateUserRequestDTO;
 import com.example.user.DTO.CreateUserResponseDTO;
+import com.example.user.DTO.ListUserResponseDTO;
 import com.example.user.DTO.ShowUserDetailResponseDTO;
+import com.example.user.DTO.UpdateUserRequestDTO;
 import com.example.user.Service.UserManagementService;
 
 @RestController
@@ -42,4 +44,35 @@ public class UserManagementController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
+
+        // LIST USERS
+    @GetMapping
+    public ListUserResponseDTO listUsers(
+            @RequestParam(required = false) String filter,
+            @RequestParam(defaultValue = "1") int startIndex,
+            @RequestParam(defaultValue = "10") int count) {
+
+        return userService.listUsers(filter, startIndex, count);
+
+    }
+
+    // UPDATE USER
+  @PatchMapping("/{id}")
+    public ResponseEntity<CreateUserResponseDTO> updateUser(
+        @PathVariable UUID id,
+        @RequestBody UpdateUserRequestDTO requestDTO) {
+
+    return new ResponseEntity<>(userService.updateUser(id, requestDTO), HttpStatus.OK);
 }
+
+// DELETE USER
+   @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteUser(@PathVariable UUID id) {
+    userService.deleteUser(id);
+    return ResponseEntity.noContent().build();
+}
+
+}
+
+
+

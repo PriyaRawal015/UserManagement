@@ -15,4 +15,9 @@ public class entitlement {
     private UUID id;
 
     private String value;
+
+    public void setResource(Resource resource) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'setResource'");
+    }
 }
